@@ -25,7 +25,7 @@ public class MainPage {
 
     // Actions
     public MainPage openPage() {
-        open("https://heisenbug.ru/");
+        open("/");
         $(".HomeHero-module-scss-module__WkJq2G__homeHero__logo").shouldHave(Condition.attribute("alt", "Heisenbug 2026 Autumn"));
 
         return this;
