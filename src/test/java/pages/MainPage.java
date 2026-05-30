@@ -86,7 +86,6 @@ public class MainPage {
 
     public MainPage searchButtonAtModalWindowCheck(String value) {
         searchButtonAtModalWindow.shouldHave(Condition.text(value));
-        ;
 
         return this;
     }
