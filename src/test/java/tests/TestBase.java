@@ -32,7 +32,7 @@ public class TestBase {
         Configuration.browserVersion = System.getProperty("browserVersion", "128.0");
         Configuration.headless = Boolean.parseBoolean(System.getProperty("headless", "true"));
         Configuration.browserSize = System.getProperty("browserResolution", "1920x1080");
-        Configuration.baseUrl = System.getProperty("testSiteBaseUrl", "https://heisenbug.ru");
+        Configuration.baseUrl = System.getProperty("baseUrl");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
