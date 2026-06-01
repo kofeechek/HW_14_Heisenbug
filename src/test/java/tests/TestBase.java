@@ -26,13 +26,36 @@ public class TestBase {
 
 
     @BeforeAll
-    static void setUp() {
+//    static void setUp() {
 
-        Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("browserVersion", "128.0");
-        Configuration.headless = Boolean.parseBoolean(System.getProperty("headless", "false"));
-        Configuration.browserSize = System.getProperty("browserResolution", "1920x1080");
-        Configuration.baseUrl = System.getProperty("testSiteBaseUrl", "https://heisenbug.ru");
+//        Configuration.browser = System.getProperty("browser", "chrome");
+//        Configuration.browserVersion = System.getProperty("browserVersion", "128.0");
+//        Configuration.headless = Boolean.parseBoolean(System.getProperty("headless", "true"));
+//        Configuration.browserSize = System.getProperty("browserResolution", "1920x1080");
+//        Configuration.baseUrl = System.getProperty("testSiteBaseUrl", "https://heisenbug.ru");
+//
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+//                "enableVNC", true,
+//                "enableVideo", true
+//        ));
+//        Configuration.browserCapabilities = capabilities;
+//        Configuration.remote = "https://" +
+//                System.getProperty("remoteBrowserUrlLogin") +
+//                ":" +
+//                System.getProperty("remoteBrowserUrlPassword") +
+//                "@" +
+//                System.getProperty("remoteBrowserUrl", "selenoid.autotests.cloud/wd/hub");
+//
+//    }
+//
+
+    static void beforeAll() {
+        Configuration.baseUrl = "https://heisenbug.ru";
+        Configuration.browserSize = "1920x1080";
+        Configuration.browser = "chrome";
+        Configuration.browserVersion = "128.0";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
@@ -40,15 +63,9 @@ public class TestBase {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
-        Configuration.remote = "https://" +
-                System.getProperty("remoteBrowserUrlLogin") +
-                ":" +
-                System.getProperty("remoteBrowserUrlPassword") +
-                "@" +
-                System.getProperty("remoteBrowserUrl", "selenoid.autotests.cloud/wd/hub");
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
     }
-
 
     @AfterEach
     void tearDown() {
