@@ -7,16 +7,16 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
+@Feature("Heisenbug Issue")
+@Story("Главная страница Heisenbug")
+@Tag("Test")
+@Owner("SvetlitskayaTS")
 public class MainPageTests extends TestBase {
 
 
     @Test
-    @Feature("Heisenbug Issue")
-    @Story("Главная страница Heisenbug")
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка кнопки 'Купить билет'")
-    @Tag("Test")
-    @Owner("SvetlitskayaTS")
     void buyTicketButtonTest() {
         step("Открываем главную странницу Heisenbug", () -> {
             mainPage.openPage();
@@ -32,12 +32,8 @@ public class MainPageTests extends TestBase {
 
 
     @Test
-    @Feature("Heisenbug Issue")
-    @Story("Главная страница Heisenbug")
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка кнопки 'Получать апдейты'")
-    @Tag("Test")
-    @Owner("SvetlitskayaTS")
     void updatesReceiveButtonTest() {
         step("Открываем главную странницу Heisenbug", () -> {
             mainPage.openPage();
@@ -53,12 +49,8 @@ public class MainPageTests extends TestBase {
 
 
     @Test
-    @Feature("Heisenbug Issue")
-    @Story("Главная страница Heisenbug")
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка ссылки 'Стать партнером'")
-    @Tag("Test")
-    @Owner("SvetlitskayaTS")
     void toBeAPartnerLinkTest() {
         step("Открываем главную странницу Heisenbug", () -> {
             mainPage.openPage();
@@ -73,12 +65,8 @@ public class MainPageTests extends TestBase {
 
 
     @Test
-    @Feature("Heisenbug Issue")
-    @Story("Главная страница Heisenbug")
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка переключателя языка страницы")
-    @Tag("Test")
-    @Owner("SvetlitskayaTS")
     void changeLanguageButtonTest() {
         step("Открываем главную странницу Heisenbug", () -> {
             mainPage.openPage();
@@ -94,12 +82,8 @@ public class MainPageTests extends TestBase {
 
 
     @Test
-    @Feature("Heisenbug Issue")
-    @Story("Главная страница Heisenbug")
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка кнопки поиска")
-    @Tag("Test")
-    @Owner("SvetlitskayaTS")
     void searchButtonTest() {
         step("Открываем главную странницу Heisenbug", () -> {
             mainPage.openPage();
