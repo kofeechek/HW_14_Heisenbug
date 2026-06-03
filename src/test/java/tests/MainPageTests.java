@@ -5,8 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.logevents.SelenideLogger.step;
-
 @Feature("Heisenbug Issue")
 @Story("Главная страница Heisenbug")
 @Tag("Test")
@@ -18,16 +16,10 @@ public class MainPageTests extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка кнопки 'Купить билет'")
     void buyTicketButtonTest() {
-        step("Открываем главную странницу Heisenbug", () -> {
-            mainPage.openPage();
-        });
-        step("Кликаем по кнопке 'Купить билет'", () -> {
-            mainPage.clickBuyButton();
-        });
+        mainPage.openPage()
+                .clickBuyButton()
 
-        step("Проверяем открытие модального окна выбора билетов", () -> {
-            mainPage.chooseTicketModalWindowCheck(testData.chooseTicketTitle);
-        });
+                .chooseTicketModalWindowCheck(testData.chooseTicketTitle);
     }
 
 
@@ -35,16 +27,10 @@ public class MainPageTests extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка кнопки 'Получать апдейты'")
     void updatesReceiveButtonTest() {
-        step("Открываем главную странницу Heisenbug", () -> {
-            mainPage.openPage();
-        });
-        step("Кликаем по кнопке 'Получать апдейты'", () -> {
-            mainPage.clickGetUpdatesButton();
-        });
+        mainPage.openPage()
+                .clickGetUpdatesButton()
 
-        step("Проверяем открытие модального окна подписки на апдейты", () -> {
-            mainPage.getUpdatesModalWindowCheck(testData.getUpdatesByEmailTitle);
-        });
+                .getUpdatesModalWindowCheck(testData.getUpdatesByEmailTitle);
     }
 
 
@@ -52,15 +38,10 @@ public class MainPageTests extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка ссылки 'Стать партнером'")
     void toBeAPartnerLinkTest() {
-        step("Открываем главную странницу Heisenbug", () -> {
-            mainPage.openPage();
-        });
-        step("Кликаем по ссылке 'Стать партнером'", () -> {
-            mainPage.clickToBeAPartnerLink();
-        });
-        step("Проверяем открытие модального окна заявки на партнерство", () -> {
-            mainPage.toBeAPartnerModalWindowCheck(testData.toBeAPartnerTitle);
-        });
+        mainPage.openPage()
+                .clickToBeAPartnerLink()
+
+                .toBeAPartnerModalWindowCheck(testData.toBeAPartnerTitle);
     }
 
 
@@ -68,16 +49,10 @@ public class MainPageTests extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка переключателя языка страницы")
     void changeLanguageButtonTest() {
-        step("Открываем главную странницу Heisenbug", () -> {
-            mainPage.openPage();
-        });
-        step("Кликаем по переключателю языка на английский", () -> {
-            mainPage.clickLanguageSwitcher();
-        });
-        step("Проверяем, что главная страница отображается на английском", () -> {
-            mainPage.mainPageSwitchedToEnglishCheck(testData.englishMainPageTitle);
-        });
+        mainPage.openPage()
+                .clickLanguageSwitcher()
 
+                .mainPageSwitchedToEnglishCheck(testData.englishMainPageTitle);
     }
 
 
@@ -85,16 +60,9 @@ public class MainPageTests extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка кнопки поиска")
     void searchButtonTest() {
-        step("Открываем главную странницу Heisenbug", () -> {
-            mainPage.openPage();
-        });
-        step("Кликаем по кнопке поиска", () -> {
-            mainPage.clickSearchButton();
-        });
-        step("Проверяем открытие модального окна поиска", () -> {
-            mainPage.searchButtonAtModalWindowCheck(testData.searchButtonAtModalWindowText);
-        });
-
+        mainPage.openPage()
+                .clickSearchButton()
+                .searchButtonAtModalWindowCheck(testData.searchButtonAtModalWindowText);
     }
 
 }
