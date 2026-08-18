@@ -44,7 +44,7 @@ public class TestBase {
                 ":" +
                 System.getProperty("remoteBrowserUrlPassword") +
                 "@" +
-                System.getProperty("remoteBrowserUrl", "selenoid.autotests.cloud/wd/hub");
+                System.getProperty("remoteBrowserUrl", "selenoid.qa.guru/wd/hub");
 
     }
 
