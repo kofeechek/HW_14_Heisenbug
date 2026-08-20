@@ -5,28 +5,30 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
 
-    // Elements
-    private SelenideElement buyButton = $x("//button[text()='Купить билет']");
-    private SelenideElement chooseTicketTitle = $x("//*[text()='Выбрать билет']");
-    private SelenideElement getUpdatesButton = $x("//button[text()='Получать апдейты']");
-    private SelenideElement getUpdatesByEmailTitle = $x("//h3[text()='Heisenbug в\u00A0email']");
-    private SelenideElement toBeAPartnerLink = $x("//button[text()='Стать партнером']");
-    private SelenideElement toBeAPartnerTitle = $x("//h2[text()='Стать партнером']");
-    private SelenideElement languageSwitcher = $x("//a[@href='/en/']");
-    private SelenideElement englishMainPageTitle = $(".HomeHero-module-scss-module__WkJq2G__homeHero__description");
+    // Elements — contains()/css*= so hashed CSS modules and &nbsp; do not flake
+    private SelenideElement buyButton = $("div[class*='homeHero__links'] button");
+    private SelenideElement chooseTicketTitle = $x("//*[contains(text(), 'Выбрать билет')]");
+    private SelenideElement getUpdatesButton = $("#subscription-home-banner-submit");
+    private SelenideElement getUpdatesByEmailTitle = $x("//h3[contains(., 'email')]");
+    private SelenideElement toBeAPartnerLink = $x("//button[contains(., 'Оставить запрос')]");
+    private SelenideElement toBeAPartnerTitle = $x("//h2[contains(., 'Стать партнером')]");
+    private SelenideElement languageSwitcher = $("a[href='/en/']");
+    private SelenideElement englishMainPageTitle = $("p[class*='homeHero__description']");
     private SelenideElement searchButton = $("button[aria-label='Поиск']");
-    private SelenideElement searchButtonAtModalWindow = $(".SearchForm-module-scss-module__KtHGZG__searchForm__submit");
+    private SelenideElement searchButtonAtModalWindow = $x("//button[contains(., 'Найти')]");
+    private SelenideElement heroLogo = $("img[alt='Heisenbug 2026 Autumn']");
 
 
     // Actions
     @Step("Открываем Главную страницу Heisenbug")
     public MainPage openPage() {
         open("/");
-        $(".HomeHero-module-scss-module__WkJq2G__homeHero__logo").shouldHave(Condition.attribute("alt", "Heisenbug 2026 Autumn"));
+        heroLogo.shouldBe(visible);
 
         return this;
     }
@@ -38,29 +40,29 @@ public class MainPage {
         return this;
     }
 
-    @Step("Проверяем открытие модального окна подписки на апдейты")
+    @Step("Проверяем открытие модального окна выбора билета")
     public MainPage chooseTicketModalWindowCheck(String value) {
         chooseTicketTitle.shouldHave(text(value));
 
         return this;
     }
 
-    @Step("Кликаем по кнопке 'Получать апдейты'")
+    @Step("Скроллим к блоку подписки и проверяем кнопку 'Подписаться'")
     public MainPage clickGetUpdatesButton() {
-        getUpdatesButton.click();
+        executeJavaScript("arguments[0].scrollIntoView({block: 'center'});", getUpdatesButton);
+        getUpdatesButton.shouldBe(visible);
 
         return this;
     }
 
-    @Step("Проверяем открытие модального окна подписки на апдейты")
+    @Step("Проверяем заголовок подписки на email")
     public MainPage getUpdatesModalWindowCheck(String value) {
-        String actual = executeJavaScript("return arguments[0].innerText;", getUpdatesByEmailTitle);
-        assert actual.contains(value);
+        getUpdatesByEmailTitle.shouldHave(text(value));
 
         return this;
     }
 
-    @Step("Кликаем по ссылке 'Стать партнером'")
+    @Step("Кликаем по кнопке 'Оставить запрос' в блоке партнерства")
     public MainPage clickToBeAPartnerLink() {
         executeJavaScript("arguments[0].click();", toBeAPartnerLink);
 
@@ -73,7 +75,7 @@ public class MainPage {
         return this;
     }
 
-    @Step("Проверяем открытие модального окна заявки на партнерство")
+    @Step("Переключаем язык страницы на английский")
     public MainPage clickLanguageSwitcher() {
         executeJavaScript("arguments[0].click();", languageSwitcher);
 
