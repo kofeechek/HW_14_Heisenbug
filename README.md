@@ -5,8 +5,8 @@
 
 ## 🔗 Ссылки на проект и инфраструктуру
 * [Тестируемый сайт](https://heisenbug.ru/)
-* [Сборка в Jenkins](https://jenkins.autotests.cloud/job/hw_14_heisenbug/)
-* [Отчет в Allure Report](https://jenkins.autotests.cloud/job/hw_14_heisenbug/allure/)
+* [Сборка в Jenkins](https://jenkins.qa.guru/job/hw_14_heisenbug/)
+* [Отчет в Allure Report](https://jenkins.qa.guru/job/hw_14_heisenbug/allure/)
 
 
 ## 🛠 Технологический стек
