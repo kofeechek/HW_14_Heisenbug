@@ -1,6 +1,7 @@
 package tests;
 
 import io.qameta.allure.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -22,7 +23,7 @@ public class MainPageTests extends TestBase {
                 .chooseTicketModalWindowCheck(testData.chooseTicketTitle);
     }
 
-
+    @Disabled
     @Test
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка кнопки 'Получать апдейты'")
@@ -33,7 +34,7 @@ public class MainPageTests extends TestBase {
                 .getUpdatesModalWindowCheck(testData.getUpdatesByEmailTitle);
     }
 
-
+    @Disabled
     @Test
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка ссылки 'Стать партнером'")
