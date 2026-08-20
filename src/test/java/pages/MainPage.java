@@ -16,7 +16,7 @@ public class MainPage {
     private SelenideElement getUpdatesButton = $("#subscription-home-banner-submit");
     private SelenideElement getUpdatesByEmailTitle = $x("//h3[contains(., 'email')]");
     private SelenideElement toBeAPartnerLink = $x("//button[contains(., 'Оставить запрос')]");
-    private SelenideElement toBeAPartnerTitle = $x("//a[normalize-space(.)='Стать партнером']");
+    private SelenideElement toBeAPartnerTitle = $x("//h2[contains(., 'Стать партнером')]");
     private SelenideElement languageSwitcher = $("a[href='/en/']");
     private SelenideElement englishMainPageTitle = $("p[class*='homeHero__description']");
     private SelenideElement searchButton = $("button[aria-label='Поиск']");
