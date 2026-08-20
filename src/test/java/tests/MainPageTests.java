@@ -23,7 +23,7 @@ public class MainPageTests extends TestBase {
                 .chooseTicketModalWindowCheck(testData.chooseTicketTitle);
     }
 
-    @Disabled
+
     @Test
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка кнопки 'Получать апдейты'")
@@ -34,7 +34,7 @@ public class MainPageTests extends TestBase {
                 .getUpdatesModalWindowCheck(testData.getUpdatesByEmailTitle);
     }
 
-    @Disabled
+
     @Test
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка ссылки 'Стать партнером'")
