@@ -1,6 +1,6 @@
 # <img width="960" title="SL_banner" src="images/screens/banner__2.jpg">  <br>Проект по автоматизации тестирования<br> сайта Heisenbug <br>
 
-> Проект включает в себя UI-автотесты для сайта Heisenbug, с использованием современного стека технологий, интеграцией в CI/CD процессы и подключением отчётности.
+> Проект включает в себя UI-автотесты и ручные тесты для сайта Heisenbug, с использованием современного стека технологий, интеграцией в CI/CD процессы и подключением отчётности.
 
 
 ## 🔗 Ссылки на проект и инфраструктуру
@@ -28,10 +28,27 @@
 * **Фреймворки**: Selenide, JUnit 5
 * **Сборка**: Gradle 8.x
 * **Отчетность**: Allure Report
+* **Test Management System**: Allure TestOps
 * **Инфраструктура**: Jenkins, Selenoid
 * **Уведомления**: Telegram Bot
 
 ---
+
+
+<a id="cases"></a>
+## :ballot_box_with_check: Реализованные проверки:
+<h3>Автоматизированные тесты:</h3>
+- Проверка кнопки 'Купить билет'
+- Проверка кнопки поиска
+- Проверка кнопки 'Получать апдейты'
+- Проверка переключателя языка страницы
+- Проверка ссылки 'Стать партнером'
+
+<h3>Ручные тесты:</h3>
+- Регистрация. Ввод e-mail существующего пользователя
+- Регистрация, ввод невалидного значения
+- Регитрация пользователя, новый пользователь
+
 
 ##  <img width="40" style="vertical-align:middle" title="Jenkins" src="images/logo/Jenkins.svg">  Сборка в Jenkins
 
@@ -52,6 +69,20 @@
 </p>
 
 ---
+
+
+## <img width="40" style="vertical-align:middle" title="Allure Report" src="images/logo/Allure_TO.svg"> Система управления тест-кейсами TestOps
+
+В TestOps отображаются тест-кейсы, а также запуски со статусом выполнения в реальном времени. Статистика выполнения кейсов отображается на дашбордах, есть возможность настройки кастомных графиков.
+
+<p align="center">
+<img title="Testops-report" src="images/screens/Testops_Report.png"><br>
+<img title="Testops-suites" src="images/screens/Testops_Suits.png"><br>
+<img title="Testops-graph" src="images/screens/Testops_Dashboards.png"><br>
+</p>
+
+---
+
 
 ## <img width="40" style="vertical-align:middle" title="Telegram" src="images/logo/Telegram.svg"> Уведомления в Telegram
 Настроена отправка отчётов прохождения тестов, в Telegram-bot.
